@@ -1,16 +1,33 @@
 package org.net.quarkus.microservices.book;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.jboss.logging.Logger;
+import org.net.quarkus.microservices.book.model.Book;
 
 @Path("/api/books")
 public class BookResource {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "Hello RESTEasy";
+    @Inject
+    Logger logger;
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response createBook(@FormParam("title") String title,
+                               @FormParam("author") String author,
+                               @FormParam("year") int yearOfPublication,
+                               @FormParam("genre") String genre) {
+        Book book = new Book();
+        book.setIsbn13("Will fetch it from Number Microservice");
+        book.setTitle(title);
+        book.setAuthor(author);
+        book.setYearOfPublication(yearOfPublication);
+        book.setGenre(genre);
+
+        logger.info("Book created: " + book);
+        return Response.status(201).entity(book).build();
     }
 }
