@@ -2,13 +2,18 @@ package org.net.quarkus.microservices.book.model;
 
 import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.json.bind.annotation.JsonbProperty;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.time.Instant;
 
+@Schema(description = "This is a Book")
 public class Book {
 
     @JsonbProperty("isbn_13")
+    @Schema(required = true)
     private String isbn13;
+
+    @Schema(required = true)
     private String title;
     private String Author;
 
@@ -18,6 +23,7 @@ public class Book {
 
     @JsonbProperty("creation_date")
     @JsonbDateFormat("dd/MM/yyyy")
+    @Schema(implementation = String.class, format = "date")
     private Instant creationDate;
 
     public String getIsbn13() {
