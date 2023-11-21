@@ -5,7 +5,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/C:/Program Files/Git/api/numbers")
+@Path("/api/numbers")
 public class NumberResource {
 
     @GET

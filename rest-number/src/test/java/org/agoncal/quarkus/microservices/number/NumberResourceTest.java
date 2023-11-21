@@ -12,7 +12,7 @@ public class NumberResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/C:/Program Files/Git/api/numbers")
+          .when().get("/api/numbers")
           .then()
              .statusCode(200)
              .body(is("Hello RESTEasy"));

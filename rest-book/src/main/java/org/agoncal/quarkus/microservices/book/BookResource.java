@@ -5,7 +5,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/C:/Program Files/Git/api/books")
+@Path("/api/books")
 public class BookResource {
 
     @GET
