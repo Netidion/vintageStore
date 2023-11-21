@@ -1,4 +1,4 @@
-package org.agoncal.quarkus.microservices.number;
+package org.net.quarkus.microservices.number;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
