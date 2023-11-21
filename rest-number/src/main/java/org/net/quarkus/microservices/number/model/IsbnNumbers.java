@@ -2,15 +2,19 @@ package org.net.quarkus.microservices.number.model;
 
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbTransient;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.time.Instant;
 
+@Schema(description = "Several ISBN numbers for books")
 public class IsbnNumbers {
 
     @JsonbProperty("isbn_10")
+    @Schema(required = true)
     private String isbn10;
 
     @JsonbProperty("isbn_13")
+    @Schema(required = true)
     private String isbn13;
 
     @JsonbTransient
