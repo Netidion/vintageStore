@@ -7,6 +7,8 @@ import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
 import org.net.quarkus.microservices.book.model.Book;
 
+import java.time.Instant;
+
 @Path("/api/books")
 public class BookResource {
 
@@ -26,6 +28,7 @@ public class BookResource {
         book.setAuthor(author);
         book.setYearOfPublication(yearOfPublication);
         book.setGenre(genre);
+        book.setCreationDate(Instant.now());
 
         logger.info("Book created: " + book);
         return Response.status(201).entity(book).build();

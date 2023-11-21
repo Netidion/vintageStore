@@ -1,14 +1,23 @@
 package org.net.quarkus.microservices.book.model;
 
+import jakarta.json.bind.annotation.JsonbDateFormat;
+import jakarta.json.bind.annotation.JsonbProperty;
+
 import java.time.Instant;
 
 public class Book {
 
+    @JsonbProperty("isbn_13")
     private String isbn13;
     private String title;
     private String Author;
+
+    @JsonbProperty("year_of_publication")
     private int yearOfPublication;
     private String genre;
+
+    @JsonbProperty("creation_date")
+    @JsonbDateFormat("dd/MM/yyyy")
     private Instant creationDate;
 
     public String getIsbn13() {
