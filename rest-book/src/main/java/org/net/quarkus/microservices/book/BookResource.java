@@ -27,7 +27,7 @@ public class BookResource {
                                @FormParam("year") int yearOfPublication,
                                @FormParam("genre") String genre) {
         Book book = new Book();
-        book.setIsbn13("Will fetch it from Number Microservice");
+        book.setIsbn13("13-");
         book.setTitle(title);
         book.setAuthor(author);
         book.setYearOfPublication(yearOfPublication);

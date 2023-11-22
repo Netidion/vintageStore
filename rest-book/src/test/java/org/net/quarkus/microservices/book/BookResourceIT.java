@@ -1,4 +1,4 @@
-package org.agoncal.quarkus.microservices.book;
+package org.net.quarkus.microservices.book;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
