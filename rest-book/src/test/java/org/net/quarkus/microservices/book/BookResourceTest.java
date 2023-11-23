@@ -4,11 +4,11 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.CoreMatchers.*;
 
 @QuarkusTest
 public class BookResourceTest {
+
 
     @Test
     public void createBookTest() {
@@ -26,6 +26,6 @@ public class BookResourceTest {
                 .body("author", startsWith("Antonio"))
                 .body("year_of_publication", is(2021))
                 .body("genre", is("IT"))
-                .body("creation_date", startsWith("22"));
+                .body("creation_date", containsString("2023"));
     }
 }
