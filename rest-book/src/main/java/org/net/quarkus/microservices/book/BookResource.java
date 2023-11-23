@@ -6,8 +6,10 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 import org.net.quarkus.microservices.book.model.Book;
+import org.net.quarkus.microservices.book.client.NumberProxy;
 
 import java.time.Instant;
 
@@ -18,6 +20,9 @@ public class BookResource {
     @Inject
     Logger logger;
 
+    @RestClient
+    NumberProxy numberProxy;
+
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -27,7 +32,7 @@ public class BookResource {
                                @FormParam("year") int yearOfPublication,
                                @FormParam("genre") String genre) {
         Book book = new Book();
-        book.setIsbn13("13-");
+        book.setIsbn13(numberProxy.getIsbnNumbers().getIsbn13());
         book.setTitle(title);
         book.setAuthor(author);
         book.setYearOfPublication(yearOfPublication);
