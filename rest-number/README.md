@@ -63,3 +63,18 @@ If you want to learn more about building native executables, please consult http
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+## Docker commands
+##To create a docker-compose.yaml file
+cd to root e.g.:vintageStore
+touch vintagestore-docker-compose.yaml
+
+##To start / stop both services with one command
+docker-compose -f vintagestore-docker-compose.yaml up
+docker-compose -f vintagestore-docker-compose.yaml down
+
+##To list containers
+docker container ls
+
+##To kill a container
+docker container kill <Id>
