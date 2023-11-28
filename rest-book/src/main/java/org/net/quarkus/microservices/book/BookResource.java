@@ -37,6 +37,7 @@ public class BookResource {
                                @FormParam("author") String author,
                                @FormParam("year") int yearOfPublication,
                                @FormParam("genre") String genre) {
+
         Book book = new Book();
         book.setIsbn13(numberProxy.getIsbnNumbers().getIsbn13());
         book.setTitle(title);
@@ -68,8 +69,5 @@ public class BookResource {
         logger.warn("Book saved on disk due to fallback: " + book);
         return Response.status(206).entity(book).build();
     }
-
-
-
 
 }

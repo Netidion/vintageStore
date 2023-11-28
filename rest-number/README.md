@@ -42,7 +42,11 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ```shell script
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```
+To build native linux executables:
+mvn package -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dmaven.test.skip=true
 
+To containerize native linux executables:
+mvn package -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dmaven.test.skip=true
 You can then execute your native executable with: `./target/rest-number-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
